@@ -136,4 +136,6 @@ class MainActivity : AppCompatActivity() {
         return findNavController(R.id.my_nav_host_fragment).navigateUp(appBarConfiguration)
     }
     // TODO END STEP 9.7
+
+
 }

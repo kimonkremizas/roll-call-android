@@ -17,14 +17,19 @@
 package com.example.android.codelabs.navigation
 
 import android.os.Bundle
+import android.util.Log
 import android.view.*
 import android.widget.Button
 import androidx.fragment.app.Fragment
+import androidx.lifecycle.lifecycleScope
 import androidx.navigation.Navigation
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.navOptions
 import appLogic.AppState
 import kotlinx.android.synthetic.main.home_fragment.*
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
+import models.User
 import services.LoginService
 
 /**
@@ -73,8 +78,13 @@ class HomeFragment : Fragment() {
         testButton?.setOnClickListener{
             AppState
 
-            var loginService: LoginService = LoginService()
-            loginService.LoginUser()
+            val loginService: LoginService = LoginService()
+            val email:String = testEmail?.text.toString()
+            val password:String = testPassword?.text.toString()
+
+            lifecycleScope.launch(Dispatchers.IO) {
+                val result = loginService.LoginUser(email, password)
+            }
         }
     }
 
