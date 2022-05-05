@@ -23,6 +23,9 @@ import androidx.fragment.app.Fragment
 import androidx.navigation.Navigation
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.navOptions
+import appLogic.AppState
+import kotlinx.android.synthetic.main.home_fragment.*
+import services.LoginService
 
 /**
  * Fragment used to show how to navigate to another destination
@@ -66,6 +69,13 @@ class HomeFragment : Fragment() {
                 Navigation.createNavigateOnClickListener(R.id.next_action, null)
         )
         //TODO END STEP 7.2
+
+        testButton?.setOnClickListener{
+            AppState
+
+            var loginService: LoginService = LoginService()
+            loginService.LoginUser()
+        }
     }
 
     override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
