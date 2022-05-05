@@ -29,6 +29,7 @@
         android:text="@string/home"
         android:textAlignment="center"
         android:textSize="52sp"
+        android:visibility="invisible"
         app:layout_constraintBottom_toTopOf="@+id/navigate_destination_button"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
@@ -70,7 +71,7 @@
         android:id="@+id/testButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Get JWT Token"
+        android:text="Login"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
@@ -98,4 +99,16 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/testEmail" />
+
+    <TextView
+        android:id="@+id/testResult"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:text="TextView"
+        android:textSize="30dp"
+        android:visibility="invisible"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/testButton" />
 </androidx.constraintlayout.widget.ConstraintLayout>

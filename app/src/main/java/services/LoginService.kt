@@ -8,17 +8,24 @@ import models.User
 class LoginService {
     companion object {
         @JvmStatic val onLoginSuccessful = Event<User>()
+        @JvmStatic val onLoginUnsuccessful = Event<String>()
     }
 
-    suspend fun LoginUser(email:String, password:String) {
+    suspend fun LoginUser(email:String, password:String):Boolean {
         var loggedInUser:User = User()
-        var loginSuccessful: Boolean = false
 
         val userController:UserController = UserController()
-        userController.LogIn(email, password)
+        loggedInUser = userController.LogIn(email, password)
 
-        if(loginSuccessful) {
+        Log.d("kek", loggedInUser.FirstName)
+        if(loggedInUser.Id != 0)
+        {
             onLoginSuccessful.invoke(loggedInUser)
+            return true
         }
+
+        //I figured this would be the easiest way
+        onLoginUnsuccessful.invoke(loggedInUser.FirstName)
+        return false
     }
 }

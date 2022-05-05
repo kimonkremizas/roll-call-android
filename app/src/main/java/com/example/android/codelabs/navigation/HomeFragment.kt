@@ -17,9 +17,9 @@
 package com.example.android.codelabs.navigation
 
 import android.os.Bundle
-import android.util.Log
 import android.view.*
 import android.widget.Button
+import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.lifecycleScope
 import androidx.navigation.Navigation
@@ -29,7 +29,6 @@ import appLogic.AppState
 import kotlinx.android.synthetic.main.home_fragment.*
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
-import models.User
 import services.LoginService
 
 /**
@@ -47,6 +46,9 @@ class HomeFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+        LoginService.onLoginSuccessful += { user -> ShowWelcomeMessage(user.FirstName) }
+        LoginService.onLoginUnsuccessful += { error -> ShowLoginFailMessage(error) }
 
         //TODO STEP 5 - Set an OnClickListener, using Navigation.createNavigateOnClickListener()
         val button = view.findViewById<Button>(R.id.navigate_destination_button)
@@ -83,12 +85,33 @@ class HomeFragment : Fragment() {
             val password:String = testPassword?.text.toString()
 
             lifecycleScope.launch(Dispatchers.IO) {
-                val result = loginService.LoginUser(email, password)
+                loginService.LoginUser(email, password)
             }
         }
     }
 
     override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
         inflater.inflate(R.menu.main_menu, menu)
+    }
+
+    private fun ShowWelcomeMessage(firstName:String)
+    {
+        activity?.runOnUiThread {
+            run {
+                testResult?.text = "Welcome, $firstName"
+                testResult?.isVisible = true
+            }
+        }
+    }
+
+    private fun ShowLoginFailMessage(error:String)
+    {
+        activity?.runOnUiThread {
+            run {
+                testResult?.text = "Could not log in. Error: $error"
+                testResult?.isVisible = true
+            }
+        }
+
     }
 }
