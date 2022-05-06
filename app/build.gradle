@@ -46,6 +46,9 @@ android {
             testCoverageEnabled false
         }
     }
+    buildFeatures {
+        viewBinding true
+    }
     dataBinding {
         enabled = true
     }
