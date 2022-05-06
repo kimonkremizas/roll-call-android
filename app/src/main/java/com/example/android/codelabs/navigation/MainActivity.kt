@@ -89,8 +89,8 @@ class MainActivity : AppCompatActivity() {
         // TODO STEP 9.4 - Use NavigationUI to set up a Navigation View
         // In split screen mode, you can drag this view out from the left
         // This does NOT modify the actionbar
-        val sideNavView = findViewById<NavigationView>(R.id.nav_view)
-        sideNavView?.setupWithNavController(navController)
+//        val sideNavView = findViewById<NavigationView>(R.id.nav_view)
+//        sideNavView?.setupWithNavController(navController)
         // TODO END STEP 9.4
     }
 
@@ -106,14 +106,14 @@ class MainActivity : AppCompatActivity() {
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
         val retValue = super.onCreateOptionsMenu(menu)
-        val navigationView = findViewById<NavigationView>(R.id.nav_view)
+//        val navigationView = findViewById<NavigationView>(R.id.nav_view)
         // The NavigationView already has these same navigation items, so we only add
         // navigation items to the menu here if there isn't a NavigationView
-        if (navigationView == null) {
+//        if (navigationView == null) {
             menuInflater.inflate(R.menu.overflow_menu, menu)
             return true
-        }
-        return retValue
+//        }
+//        return retValue
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
