@@ -25,6 +25,7 @@ apply plugin: 'kotlin-android-extensions'
 
 repositories {
     mavenCentral()
+    google()
 }
 
 android {
@@ -77,6 +78,7 @@ dependencies {
     implementation "com.google.android.material:material:$rootProject.materialVersion"
     implementation "androidx.appcompat:appcompat:$rootProject.appCompatVersion"
     implementation "androidx.recyclerview:recyclerview:$rootProject.recyclerVersion"
+    implementation "com.androidx.support:support-core-utils:26.0.0"
 
     implementation "androidx.constraintlayout:constraintlayout:$rootProject.constraintLayoutVersion"
 
