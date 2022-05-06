@@ -17,7 +17,6 @@ class LoginService {
         val userController:UserController = UserController()
         loggedInUser = userController.LogIn(email, password)
 
-        Log.d("kek", loggedInUser.FirstName)
         if(loggedInUser.Id != 0)
         {
             onLoginSuccessful.invoke(loggedInUser)

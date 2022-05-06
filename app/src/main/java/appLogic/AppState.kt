@@ -21,6 +21,6 @@ object AppState {
 
     private fun SetCurrentUser(user: User) {
         CurrentUser = user
-        Log.d("kek", ":O")
+        CurrentState = State.LoggedIn
     }
 }

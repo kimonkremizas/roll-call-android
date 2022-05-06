@@ -132,6 +132,5 @@ class HomeFragment : Fragment() {
                 binding.loginResult.visibility = VISIBLE
             }
         }
-
     }
 }

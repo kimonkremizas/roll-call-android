@@ -24,9 +24,6 @@ class UserController {
 
         @Serializable
         data class LoginData(val email:String, val password:String)
-        @Serializable
-        data class UserData(val id: Int, val email: String, val firstName: String,
-                val lastName: String, val roleId: Int)
 
         val loginData:LoginData = LoginData(email, password)
         val jsonData:String = Json.encodeToString(loginData)
@@ -72,4 +69,8 @@ class UserController {
 
         return user
     }
+
+    @Serializable
+    data class UserData(val id: Int, val email: String, val firstName: String,
+                        val lastName: String, val roleId: Int)
 }
