@@ -19,4 +19,13 @@ object HelperFunctions {
         val inputMethodManager = getSystemService(Activity.INPUT_METHOD_SERVICE) as InputMethodManager
         inputMethodManager.hideSoftInputFromWindow(view.windowToken, 0)
     }
+
+    fun GetDayEnding(day: Int): String {
+        when(day) {
+            1, 21, 31 -> return "st"
+            2, 22 -> return "nd"
+            3, 23 -> return "rd"
+            else -> return "th"
+        }
+    }
 }

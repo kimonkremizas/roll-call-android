@@ -22,21 +22,22 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
+import androidx.appcompat.widget.ThemedSpinnerAdapter
 import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.lifecycleScope
 import androidx.navigation.Navigation
 import androidx.navigation.fragment.navArgs
 import appLogic.AppState
+import helpers.HelperFunctions
 import kotlinx.android.synthetic.main.flow_step_one_fragment.*
 import kotlinx.android.synthetic.main.navigation_activity.*
 import kotlinx.android.synthetic.main.overview_fragment.*
 import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
-import kotlinx.datetime.Clock
-import kotlinx.datetime.Instant
+import kotlinx.datetime.*
 import kotlinx.datetime.TimeZone
-import kotlinx.datetime.toInstant
 import models.Lesson
 import services.LessonService
 import java.time.LocalDateTime
@@ -117,8 +118,12 @@ class FlowStepFragment : Fragment() {
                 return@launch
             }
 
+            val int: Int = 45
+            val duration: Duration = int.toDuration(DurationUnit.MINUTES)
             val instant1: Instant = lesson.StartTime.toInstant(TimeZone.UTC)
             val instant2: Instant = Clock.System.now()
+            val instant3: Instant = instant1.plus(duration)
+            val dateTime3: kotlinx.datetime.LocalDateTime = instant3.toLocalDateTime(TimeZone.UTC)
 
             if (instant1 < instant2) {
                 twLessonWhen?.text = "Your current lesson"
@@ -127,9 +132,11 @@ class FlowStepFragment : Fragment() {
             }
             twLessonName?.text = lesson.SubjectName
             twLessonCampus?.text = lesson.CampusName
-            val int: Int = 45
-            val duration: Duration = int.toDuration(DurationUnit.MINUTES)
-            twLessonTime?.text = lesson.StartTime.toString() + " - " + instant1.plus(duration)
+
+            twLessonTime?.text = "${lesson.StartTime.dayOfMonth}${HelperFunctions.GetDayEnding(lesson.StartTime.dayOfMonth)} " +
+                    "${lesson.StartTime.month} ${lesson.StartTime.hour}:${lesson.StartTime.minute}" +
+                    "- ${dateTime3.hour}:${dateTime3.minute}"
+            //twLessonTime?.text = lesson.StartTime.toString() + " - " + instant1.plus(duration)
             twTeacherName?.text = lesson.TeacherName
 
             if (lesson.Code == null) {
@@ -140,6 +147,7 @@ class FlowStepFragment : Fragment() {
             } else {
                 btnCheckIn?.isVisible = true
                 cardCheckIn?.isVisible = true
+                CheckInCounter()
                 twRollCallStatus?.text = "Roll call has started."
                 twRollCallStatus.setTextColor(Color.parseColor("#E43838"))
             }
@@ -147,17 +155,17 @@ class FlowStepFragment : Fragment() {
             if(swipeRefresh?.isRefreshing == true) {
                 swipeRefresh?.setRefreshing(false)
             }
-        }
 
-        lifecycleScope.launch(Dispatchers.IO) {
-            val result: Boolean = lessonService.CheckIfCheckedIn(AppState.CurrentUser, AppState.CurrentLesson)
+            lifecycleScope.launch(Dispatchers.IO) {
+                val result: Boolean = lessonService.CheckIfCheckedIn(AppState.CurrentUser, AppState.CurrentLesson)
 
-            if(result == true) {
-                lifecycleScope.launch(Dispatchers.Main) {
-                    btnCheckIn?.isVisible = false
-                    cardCheckIn?.isVisible = false
-                    twRollCallStatus?.text = "You have checked in."
-                    twRollCallStatus.setTextColor(Color.parseColor("#2E2E2E"))
+                if(result == true) {
+                    lifecycleScope.launch(Dispatchers.Main) {
+                        btnCheckIn?.isVisible = false
+                        cardCheckIn?.isVisible = false
+                        twRollCallStatus?.text = "You have checked in."
+                        twRollCallStatus.setTextColor(Color.parseColor("#2E2E2E"))
+                    }
                 }
             }
         }
@@ -189,6 +197,42 @@ class FlowStepFragment : Fragment() {
         lifecycleScope.launch(Dispatchers.Main) {
             val toast = Toast.makeText(activity?.applicationContext, text, Toast.LENGTH_LONG)
             toast.show()
+        }
+    }
+
+    private fun CheckInCounter() {
+        lifecycleScope.launch(Dispatchers.IO) {
+            var instant1: Instant
+            var instant2: Instant
+            var difference:Duration
+            val int: Int = 10
+            val duration: Duration = int.toDuration(DurationUnit.MINUTES)
+            while (cardCheckIn?.isVisible == true) {
+                instant1 = AppState.CurrentLesson.CodeTime?.toInstant(TimeZone.UTC)!!
+                instant2 = Clock.System.now()
+                difference = instant1.plus(duration) - instant2
+                if(difference.inWholeSeconds > 0){
+                    difference.toComponents { x, y, _ -> UpdateCounterText(x, y)}
+                    delay(1000)
+                }
+                else {
+                    CounterTimeOut()
+                }
+            }
+        }
+    }
+
+    private fun UpdateCounterText(minutes: Long, seconds: Int) {
+        lifecycleScope.launch(Dispatchers.Main) {
+            twRollCallCountdown?.text = "${minutes}:${seconds}"
+            btnCheckIn.isEnabled = true
+        }
+    }
+
+    private fun CounterTimeOut() {
+        lifecycleScope.launch(Dispatchers.Main) {
+            twRollCallCountdown?.text = "Time out"
+            btnCheckIn.isEnabled = false
         }
     }
 }
