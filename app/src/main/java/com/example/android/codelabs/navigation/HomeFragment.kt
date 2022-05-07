@@ -27,6 +27,8 @@ import androidx.navigation.fragment.findNavController
 import androidx.navigation.navOptions
 import appLogic.AppState
 import com.example.android.codelabs.navigation.databinding.HomeFragmentBinding
+import helpers.HelperFunctions
+import helpers.HelperFunctions.hideKeyboard
 import kotlinx.android.synthetic.main.home_fragment.*
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
@@ -90,7 +92,8 @@ class HomeFragment : Fragment() {
 
             lifecycleScope.launch(Dispatchers.Main) {
                 binding.progressBar.visibility =  VISIBLE
-
+                loginButton?.isVisible = false
+                hideKeyboard()
             }
             lifecycleScope.launch(Dispatchers.IO) {
                 loginService.LoginUser(email, password)
@@ -111,6 +114,7 @@ class HomeFragment : Fragment() {
     {
         lifecycleScope.launch(Dispatchers.Main) {
             binding.progressBar.visibility =  GONE
+            loginButton?.isVisible = true
         }
 
         lifecycleScope.launch(Dispatchers.IO) {
@@ -142,6 +146,7 @@ class HomeFragment : Fragment() {
     {
         lifecycleScope.launch(Dispatchers.Main) {
             progressBar.visibility =  GONE
+            loginButton?.isVisible = true
         }
         activity?.runOnUiThread {
             run {
