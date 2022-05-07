@@ -38,4 +38,9 @@ class LessonService {
             return "Fail"
         }
     }
+
+    suspend fun CheckIfCheckedIn(user: User, lesson: Lesson): Boolean {
+        val result: Boolean = lessonController.CheckIfCheckedIn(user, lesson)
+        return result;
+    }
 }

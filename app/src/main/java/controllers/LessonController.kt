@@ -62,6 +62,26 @@ class LessonController {
             client.newCall(request).execute().use { response ->
                 if (!response.isSuccessful) throw IOException("Unexpected code $response")
                 response.body()?.let {
+                    val bool:Boolean = Json.decodeFromString(it.string())
+                    return bool
+                }
+            }
+        }
+        catch (ex: IOException) {
+            return false
+        }
+
+        return false
+    }
+
+    suspend fun CheckIfCheckedIn(user: User, lesson: Lesson): Boolean {
+        val request = Request.Builder().url("$lessonUrl/CheckedIn/${lesson.Id}")
+            .addHeader("Authorization", "Bearer ${user.Token}").build()
+
+        try {
+            client.newCall(request).execute().use { response ->
+                if (!response.isSuccessful) throw IOException("Unexpected code $response")
+                response.body()?.let {
                     return true
                 }
             }

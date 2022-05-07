@@ -16,6 +16,7 @@
 
 package com.example.android.codelabs.navigation
 
+import android.graphics.Color
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -121,13 +122,30 @@ class FlowStepFragment : Fragment() {
             if (lesson.Code == null) {
                 btnCheckIn?.isVisible = false
                 cardCheckIn?.isVisible = false
+                twRollCallStatus?.text = "Roll call has not started yet."
+                twRollCallStatus.setTextColor(Color.parseColor("#2E2E2E"))
             } else {
                 btnCheckIn?.isVisible = true
                 cardCheckIn?.isVisible = true
+                twRollCallStatus?.text = "Roll call has started."
+                twRollCallStatus.setTextColor(Color.parseColor("#E43838"))
             }
 
             if(swipeRefresh?.isRefreshing == true) {
                 swipeRefresh?.setRefreshing(false)
+            }
+        }
+
+        lifecycleScope.launch(Dispatchers.IO) {
+            val result: Boolean = lessonService.CheckIfCheckedIn(AppState.CurrentUser, AppState.CurrentLesson)
+
+            if(result == true) {
+                lifecycleScope.launch(Dispatchers.Main) {
+                    btnCheckIn?.isVisible = false
+                    cardCheckIn?.isVisible = false
+                    twRollCallStatus?.text = "You have checked in."
+                    twRollCallStatus.setTextColor(Color.parseColor("#2E2E2E"))
+                }
             }
         }
     }

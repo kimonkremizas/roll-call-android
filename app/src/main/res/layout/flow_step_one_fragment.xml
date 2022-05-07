@@ -170,7 +170,7 @@
                     app:layout_constraintTop_toBottomOf="@+id/twLessonCampus" />
 
                 <TextView
-                    android:id="@+id/textView8"
+                    android:id="@+id/twRollCallStatus"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="10dp"
