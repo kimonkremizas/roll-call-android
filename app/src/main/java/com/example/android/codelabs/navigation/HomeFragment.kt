@@ -84,7 +84,6 @@ class HomeFragment : Fragment() {
 
         loginButton?.setOnClickListener{
             AppState
-
             val loginService: LoginService = LoginService()
             val email:String = loginEmail?.text.toString()
             val password:String = loginPassword?.text.toString()
