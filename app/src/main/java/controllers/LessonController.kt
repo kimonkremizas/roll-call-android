@@ -62,8 +62,7 @@ class LessonController {
             client.newCall(request).execute().use { response ->
                 if (!response.isSuccessful) throw IOException("Unexpected code $response")
                 response.body()?.let {
-                    val bool:Boolean = Json.decodeFromString(it.string())
-                    return bool
+                    return true
                 }
             }
         }
@@ -82,7 +81,8 @@ class LessonController {
             client.newCall(request).execute().use { response ->
                 if (!response.isSuccessful) throw IOException("Unexpected code $response")
                 response.body()?.let {
-                    return true
+                    val bool:Boolean = Json.decodeFromString(it.string())
+                    return bool
                 }
             }
         }
