@@ -22,11 +22,14 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
+import androidx.lifecycle.lifecycleScope
 import androidx.navigation.Navigation
 import androidx.navigation.fragment.navArgs
 import appLogic.AppState
 import kotlinx.android.synthetic.main.flow_step_one_fragment.*
 import kotlinx.android.synthetic.main.overview_fragment.*
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
 import kotlinx.datetime.Clock
 import kotlinx.datetime.Instant
 import kotlinx.datetime.TimeZone
@@ -79,27 +82,29 @@ class FlowStepFragment : Fragment() {
 
     private fun FillLessonCard(lesson: Lesson)
     {
-        currentLesson = lesson
+        lifecycleScope.launch(Dispatchers.Main) {
 
-        val instant1: Instant = lesson.StartTime.toInstant(TimeZone.UTC)
-        val instant2: Instant = Clock.System.now()
+            currentLesson = lesson
 
-        if(instant1 < instant2) {
-            twLessonWhen?.text = "Your current lesson"
-        }
-        else {
-            twLessonWhen?.text = "Your upcoming lesson"
-        }
-        twLessonName?.text = lesson.SubjectName
-        twLessonCampus?.text = lesson.CampusName
-        val int:Int = 45
-        val duration: Duration = int.toDuration(DurationUnit.MINUTES)
-        twLessonTime?.text = lesson.StartTime.toString() + " - " + instant1.plus(duration)
-        twTeacherName?.text = lesson.TeacherName
+            val instant1: Instant = lesson.StartTime.toInstant(TimeZone.UTC)
+            val instant2: Instant = Clock.System.now()
 
-        if(lesson.Code == null) {
-            btnCheckIn?.isVisible = false
-            cardCheckIn?.isVisible = false
+            if (instant1 < instant2) {
+                twLessonWhen?.text = "Your current lesson"
+            } else {
+                twLessonWhen?.text = "Your upcoming lesson"
+            }
+            twLessonName?.text = lesson.SubjectName
+            twLessonCampus?.text = lesson.CampusName
+            val int: Int = 45
+            val duration: Duration = int.toDuration(DurationUnit.MINUTES)
+            twLessonTime?.text = lesson.StartTime.toString() + " - " + instant1.plus(duration)
+            twTeacherName?.text = lesson.TeacherName
+
+            if (lesson.Code == null) {
+                btnCheckIn?.isVisible = false
+                cardCheckIn?.isVisible = false
+            }
         }
     }
 }
