@@ -20,6 +20,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.lifecycleScope
@@ -49,6 +50,7 @@ import kotlin.time.toDuration
 class FlowStepFragment : Fragment() {
 
     private var currentLesson:Lesson = Lesson()
+    val lessonService: LessonService = LessonService()
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -76,7 +78,11 @@ class FlowStepFragment : Fragment() {
         FillLessonCard(AppState.CurrentLesson)
 
         swipeRefresh?.setOnRefreshListener {
+            RefreshLesson()
+        }
 
+        btnCheckIn?.setOnClickListener {
+            CheckIn()
         }
 
          /*view.findViewById<View>(R.id.next_button).setOnClickListener(
@@ -115,11 +121,43 @@ class FlowStepFragment : Fragment() {
             if (lesson.Code == null) {
                 btnCheckIn?.isVisible = false
                 cardCheckIn?.isVisible = false
+            } else {
+                btnCheckIn?.isVisible = true
+                cardCheckIn?.isVisible = true
             }
 
             if(swipeRefresh?.isRefreshing == true) {
                 swipeRefresh?.setRefreshing(false)
             }
+        }
+    }
+
+    private fun CheckIn() {
+        var code: Int = 0
+
+        if(editTextNumber?.text.toString() != "") {
+            code = Integer.parseInt(editTextNumber?.text.toString())
+        }
+
+        lifecycleScope.launch(Dispatchers.IO) {
+            val result: String = lessonService.CheckIntoLesson(AppState.CurrentUser, AppState.CurrentLesson, code)
+
+            when(result) {
+                "Incorrect" -> { ShowToast("Incorrect code.") }
+                "Success" -> {
+                    ShowToast("You have successfully checked in.")
+                    lessonService.GetCurrentLesson(AppState.CurrentUser)
+                }
+                "Fail" -> { ShowToast("Check in failed.")}
+                else -> { ShowToast("Something went wrong.")}
+            }
+        }
+    }
+
+    private fun ShowToast(text: String) {
+        lifecycleScope.launch(Dispatchers.Main) {
+            val toast = Toast.makeText(activity?.applicationContext, text, Toast.LENGTH_LONG)
+            toast.show()
         }
     }
 }
