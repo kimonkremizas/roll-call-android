@@ -30,6 +30,7 @@ import com.example.android.codelabs.navigation.databinding.HomeFragmentBinding
 import helpers.HelperFunctions
 import helpers.HelperFunctions.hideKeyboard
 import kotlinx.android.synthetic.main.home_fragment.*
+import kotlinx.android.synthetic.main.navigation_activity.*
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import services.LessonService

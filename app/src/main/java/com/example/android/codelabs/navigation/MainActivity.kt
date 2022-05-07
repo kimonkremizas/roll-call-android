@@ -21,16 +21,22 @@ import android.os.Bundle
 import android.util.Log
 import android.view.Menu
 import android.view.MenuItem
+import android.view.View.*
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
 import androidx.drawerlayout.widget.DrawerLayout
+import androidx.lifecycle.lifecycleScope
 import androidx.navigation.NavController
 import androidx.navigation.findNavController
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.*
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.google.android.material.navigation.NavigationView
+import kotlinx.android.synthetic.main.navigation_activity.*
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
+import services.LoginService
 
 /**
  * A simple activity demonstrating use of a NavHostFragment with a navigation drawer.
@@ -41,6 +47,11 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.navigation_activity)
+
+        LoginService.onLoginSuccessful += {
+            lifecycleScope.launch(Dispatchers.Main) { bottom_nav_view?.visibility = VISIBLE }
+        }
+        bottom_nav_view?.visibility = INVISIBLE
 
         val toolbar = findViewById<Toolbar>(R.id.toolbar)
         setSupportActionBar(toolbar)

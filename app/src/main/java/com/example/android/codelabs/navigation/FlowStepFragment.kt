@@ -29,6 +29,7 @@ import androidx.navigation.Navigation
 import androidx.navigation.fragment.navArgs
 import appLogic.AppState
 import kotlinx.android.synthetic.main.flow_step_one_fragment.*
+import kotlinx.android.synthetic.main.navigation_activity.*
 import kotlinx.android.synthetic.main.overview_fragment.*
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
@@ -103,6 +104,18 @@ class FlowStepFragment : Fragment() {
         lifecycleScope.launch(Dispatchers.Main) {
 
             currentLesson = lesson
+
+            if(currentLesson.Id == 0) {
+                twLessonWhen?.text = "Your upcoming lesson"
+                twLessonName?.text = "No upcoming lesson found."
+                twLessonTime?.text = ""
+                twRollCallStatus?.text = ""
+                twLessonCampus?.text = ""
+                twTeacherName?.text = ""
+                btnCheckIn?.isVisible = false
+                cardCheckIn?.isVisible = false
+                return@launch
+            }
 
             val instant1: Instant = lesson.StartTime.toInstant(TimeZone.UTC)
             val instant2: Instant = Clock.System.now()
