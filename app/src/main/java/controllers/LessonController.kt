@@ -1,6 +1,7 @@
 package controllers
 
 import kotlinx.datetime.Instant
+import kotlinx.datetime.LocalDateTime
 import kotlinx.serialization.Serializable
 import kotlinx.serialization.decodeFromString
 import kotlinx.serialization.json.Json
@@ -33,7 +34,8 @@ class LessonController {
                 response.body()?.let {
                     lessonData = Json.decodeFromString(it.string())
                     lesson = Lesson(lessonData.id, lessonData.subjectName, lessonData.startTime,
-                            lessonData.code, lessonData.codeTime, lessonData.campusName, lessonData.TeacherName)
+                            lessonData.code, lessonData.codeTime, lessonData.campusName, lessonData.teacherName)
+                    //lesson = Lesson(lessonData.id, lessonData.subjectName, lessonData.code, lessonData.campusName, lessonData.teacherName)
                     return lesson
                 }
             }
@@ -48,6 +50,6 @@ class LessonController {
 
     @Serializable
     data class LessonData(val id: Int, val subjectId: Int, val subjectName: String,
-                          val startTime: Instant, val code: Int?, val codeTime: Instant?,
-                            val campusId: Int, val campusName: String, val TeacherName: String)
+                          val startTime: LocalDateTime, val code: Int?, val codeTime: LocalDateTime?,
+                            val campusId: Int, val campusName: String, val teacherName: String)
 }

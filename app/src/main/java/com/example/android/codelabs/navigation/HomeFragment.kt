@@ -30,6 +30,7 @@ import com.example.android.codelabs.navigation.databinding.HomeFragmentBinding
 import kotlinx.android.synthetic.main.home_fragment.*
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
+import services.LessonService
 import services.LoginService
 
 /**
@@ -93,7 +94,6 @@ class HomeFragment : Fragment() {
 
             }
             lifecycleScope.launch(Dispatchers.IO) {
-
                 loginService.LoginUser(email, password)
             }
         }
@@ -113,12 +113,30 @@ class HomeFragment : Fragment() {
         lifecycleScope.launch(Dispatchers.Main) {
             binding.progressBar.visibility =  GONE
         }
+
+        lifecycleScope.launch(Dispatchers.IO) {
+            val lessonService: LessonService = LessonService()
+            lessonService.GetCurrentLesson(AppState.CurrentUser)
+        }
+
         activity?.runOnUiThread {
             run {
-                binding.loginResult.text = "Welcome, $firstName"
-                binding.loginResult.visibility = VISIBLE
+                //binding.loginResult.text = "Welcome, $firstName"
+                //binding.loginResult.visibility = VISIBLE
+
+                val options = navOptions {
+                    anim {
+                        enter = R.anim.slide_in_right
+                        exit = R.anim.slide_out_left
+                        popEnter = R.anim.slide_in_left
+                        popExit = R.anim.slide_out_right
+                    }
+                }
+                findNavController().navigate(R.id.flow_step_one_dest, null, options)
             }
         }
+
+
     }
 
     private fun ShowLoginFailMessage(error:String)

@@ -81,8 +81,8 @@ class MainActivity : AppCompatActivity() {
 
     private fun setupBottomNavMenu(navController: NavController) {
         // TODO STEP 9.3 - Use NavigationUI to set up Bottom Nav
-        val bottomNav = findViewById<BottomNavigationView>(R.id.bottom_nav_view)
-        bottomNav?.setupWithNavController(navController)
+        //val bottomNav = findViewById<BottomNavigationView>(R.id.bottom_nav_view)
+        //bottomNav?.setupWithNavController(navController)
         // TODO END STEP 9.3
     }
 
