@@ -7,8 +7,10 @@ import kotlinx.serialization.decodeFromString
 import kotlinx.serialization.json.Json
 import models.Lesson
 import models.User
+import okhttp3.MediaType
 import okhttp3.OkHttpClient
 import okhttp3.Request
+import okhttp3.RequestBody
 import java.io.IOException
 import java.util.concurrent.TimeUnit
 
@@ -25,7 +27,7 @@ class LessonController {
 
         var lessonData: LessonData
 
-        var request = Request.Builder().url("$lessonUrl/Current")
+        val request = Request.Builder().url("$lessonUrl/Current")
                 .addHeader("Authorization", "Bearer ${user.Token}").build()
 
         try {
@@ -46,6 +48,29 @@ class LessonController {
         }
 
         return lesson
+    }
+
+    suspend fun CheckIntoLesson(user: User, lesson: Lesson, code: Int): Boolean
+    {
+        val requestBody:RequestBody =
+            RequestBody.create(MediaType.parse("application/json"), "")
+
+        val request = Request.Builder().url("$lessonUrl/CheckIn/${lesson.Id}?code=$code")
+            .addHeader("Authorization", "Bearer ${user.Token}").post(requestBody).build()
+
+        try {
+            client.newCall(request).execute().use { response ->
+                if (!response.isSuccessful) throw IOException("Unexpected code $response")
+                response.body()?.let {
+                    return true
+                }
+            }
+        }
+        catch (ex: IOException) {
+            return false
+        }
+
+        return false
     }
 
     @Serializable

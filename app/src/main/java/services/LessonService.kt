@@ -23,4 +23,19 @@ class LessonService {
 
         return false
     }
+
+    suspend fun CheckIntoLesson(user: User, lesson: Lesson, code: Int):String {
+        if(code != lesson.Code) {
+            return "Incorrect"
+        }
+
+        val result: Boolean = lessonController.CheckIntoLesson(user, lesson, code)
+
+        if(result == true) {
+            return "Success"
+        }
+        else {
+            return "Fail"
+        }
+    }
 }
