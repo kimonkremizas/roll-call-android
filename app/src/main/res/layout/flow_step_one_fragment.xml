@@ -1,196 +1,204 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.swiperefreshlayout.widget.SwipeRefreshLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/swipeRefresh"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <TextView
-        android:id="@+id/textView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="10dp"
-        android:layout_marginTop="10dp"
-        android:fontFamily="@font/sofia_pro"
-        android:text="KEA - KØBENHAVNS ERHVERVSAKADEMI "
-        android:textColor="#333333"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+    <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
 
-    <TextView
-        android:id="@+id/textView2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="10dp"
-        android:fontFamily="@font/sofia_pro_medium"
-        android:text="Overview"
-        android:textColor="#000000"
-        android:textSize="40dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView" />
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="10dp"
+            android:fontFamily="@font/sofia_pro"
+            android:text="KEA - KØBENHAVNS ERHVERVSAKADEMI "
+            android:textColor="#333333"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
-    <androidx.cardview.widget.CardView
-        android:id="@+id/cardCheckIn"
-        android:layout_width="0dp"
-        android:layout_height="80dp"
-        android:layout_marginStart="10dp"
-        android:layout_marginTop="-20dp"
-        android:layout_marginEnd="10dp"
-        app:cardCornerRadius="0dp"
-        app:cardElevation="70dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/cardView" >
+        <TextView
+            android:id="@+id/textView2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:fontFamily="@font/sofia_pro_medium"
+            android:text="Overview"
+            android:textColor="#000000"
+            android:textSize="40dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView" />
 
-        <androidx.constraintlayout.widget.ConstraintLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
+        <androidx.cardview.widget.CardView
+            android:id="@+id/cardCheckIn"
+            android:layout_width="0dp"
+            android:layout_height="80dp"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="-20dp"
+            android:layout_marginEnd="10dp"
+            app:cardCornerRadius="0dp"
+            app:cardElevation="70dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/cardView">
 
-            <EditText
-                android:id="@+id/editTextNumber"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="10dp"
-                android:layout_marginTop="30dp"
-                android:ems="10"
-                android:fontFamily="@font/sofia_pro_medium"
-                android:hint="Lesson code"
-                android:inputType="number"
-                android:minHeight="48dp"
-                android:textAllCaps="false"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
 
-            <TextView
-                android:id="@+id/textView9"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="30dp"
-                android:layout_marginEnd="20dp"
-                android:fontFamily="@font/sofia_pro_bold"
-                android:text="00:00"
-                android:textColor="#E43838"
-                android:textSize="30dp"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
-        </androidx.constraintlayout.widget.ConstraintLayout>
+                <EditText
+                    android:id="@+id/editTextNumber"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginTop="30dp"
+                    android:ems="10"
+                    android:fontFamily="@font/sofia_pro_medium"
+                    android:hint="Lesson code"
+                    android:inputType="number"
+                    android:minHeight="48dp"
+                    android:textAllCaps="false"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
 
-    </androidx.cardview.widget.CardView>
+                <TextView
+                    android:id="@+id/textView9"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="30dp"
+                    android:layout_marginEnd="20dp"
+                    android:fontFamily="@font/sofia_pro_bold"
+                    android:text="00:00"
+                    android:textColor="#E43838"
+                    android:textSize="30dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
 
-    <androidx.cardview.widget.CardView
-        android:id="@+id/cardView"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="10dp"
-        android:layout_marginTop="20dp"
-        android:layout_marginEnd="10dp"
-        app:cardCornerRadius="20dp"
-        app:cardElevation="70dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView2">
+        </androidx.cardview.widget.CardView>
 
-        <androidx.constraintlayout.widget.ConstraintLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
+        <androidx.cardview.widget.CardView
+            android:id="@+id/cardView"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginEnd="10dp"
+            app:cardCornerRadius="20dp"
+            app:cardElevation="70dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView2">
 
-            <TextView
-                android:id="@+id/twLessonName"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="10dp"
-                android:layout_marginTop="5dp"
-                android:fontFamily="@font/sofia_pro_bold"
-                android:text="Current Lesson"
-                android:textColor="#000000"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/twLessonWhen" />
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
 
-            <ImageView
-                android:id="@+id/imageView"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="10dp"
-                android:layout_marginTop="10dp"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                app:srcCompat="@drawable/ic_android" />
+                <TextView
+                    android:id="@+id/twLessonName"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginTop="5dp"
+                    android:fontFamily="@font/sofia_pro_bold"
+                    android:text="Current Lesson"
+                    android:textColor="#000000"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/twLessonWhen" />
 
-            <TextView
-                android:id="@+id/twLessonWhen"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="10dp"
-                android:layout_marginTop="10dp"
-                android:fontFamily="@font/sofia_pro"
-                android:text="Your current lesson"
-                android:textColor="#000000"
-                app:layout_constraintStart_toEndOf="@+id/imageView"
-                app:layout_constraintTop_toTopOf="parent" />
+                <ImageView
+                    android:id="@+id/imageView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginTop="10dp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:srcCompat="@drawable/ic_android" />
 
-            <TextView
-                android:id="@+id/twLessonCampus"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="5dp"
-                android:fontFamily="@font/sofia_pro"
-                android:text="Campus Name"
-                android:textColor="#2E2E2E"
-                app:layout_constraintStart_toStartOf="@+id/twLessonName"
-                app:layout_constraintTop_toBottomOf="@+id/twLessonName" />
+                <TextView
+                    android:id="@+id/twLessonWhen"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginTop="10dp"
+                    android:fontFamily="@font/sofia_pro"
+                    android:text="Your current lesson"
+                    android:textColor="#000000"
+                    app:layout_constraintStart_toEndOf="@+id/imageView"
+                    app:layout_constraintTop_toTopOf="parent" />
 
-            <TextView
-                android:id="@+id/twTeacherName"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="10dp"
-                android:fontFamily="@font/sofia_pro"
-                android:text="TextView"
-                android:textColor="#2E2E2E"
-                app:layout_constraintStart_toEndOf="@+id/twLessonName"
-                app:layout_constraintTop_toTopOf="@+id/twLessonCampus" />
+                <TextView
+                    android:id="@+id/twLessonCampus"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:fontFamily="@font/sofia_pro"
+                    android:text="Campus Name"
+                    android:textColor="#2E2E2E"
+                    app:layout_constraintStart_toStartOf="@+id/twLessonName"
+                    app:layout_constraintTop_toBottomOf="@+id/twLessonName" />
 
-            <TextView
-                android:id="@+id/twLessonTime"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
-                android:fontFamily="@font/sofia_pro_medium"
-                android:text="11/11, 00:00 - 00:00"
-                android:textColor="#000000"
-                android:textSize="30dp"
-                app:layout_constraintStart_toStartOf="@+id/twLessonCampus"
-                app:layout_constraintTop_toBottomOf="@+id/twLessonCampus" />
+                <TextView
+                    android:id="@+id/twTeacherName"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="10dp"
+                    android:fontFamily="@font/sofia_pro"
+                    android:text="TextView"
+                    android:textColor="#2E2E2E"
+                    app:layout_constraintStart_toEndOf="@+id/twLessonName"
+                    app:layout_constraintTop_toTopOf="@+id/twLessonCampus" />
 
-            <TextView
-                android:id="@+id/textView8"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
-                android:layout_marginBottom="10dp"
-                android:fontFamily="@font/sofia_pro"
-                android:text="Roll call has not started yet."
-                android:textColor="#2E2E2E"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintStart_toStartOf="@+id/twLessonTime"
-                app:layout_constraintTop_toBottomOf="@+id/twLessonTime" />
-        </androidx.constraintlayout.widget.ConstraintLayout>
+                <TextView
+                    android:id="@+id/twLessonTime"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:fontFamily="@font/sofia_pro_medium"
+                    android:text="11/11, 00:00 - 00:00"
+                    android:textColor="#000000"
+                    android:textSize="30dp"
+                    app:layout_constraintStart_toStartOf="@+id/twLessonCampus"
+                    app:layout_constraintTop_toBottomOf="@+id/twLessonCampus" />
 
-    </androidx.cardview.widget.CardView>
+                <TextView
+                    android:id="@+id/textView8"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginBottom="10dp"
+                    android:fontFamily="@font/sofia_pro"
+                    android:text="Roll call has not started yet."
+                    android:textColor="#2E2E2E"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="@+id/twLessonTime"
+                    app:layout_constraintTop_toBottomOf="@+id/twLessonTime" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
 
-    <Button
-        android:id="@+id/btnCheckIn"
-        android:layout_width="0dp"
-        android:layout_height="60dp"
-        android:layout_marginTop="-20dp"
-        android:backgroundTint="#E43838"
-        android:elevation="70dp"
-        android:fontFamily="@font/sofia_pro_black_normal"
-        android:text="Check in"
-        app:cornerRadius="20dp"
-        app:layout_constraintEnd_toEndOf="@+id/cardCheckIn"
-        app:layout_constraintHorizontal_bias="0.496"
-        app:layout_constraintStart_toStartOf="@+id/cardCheckIn"
-        app:layout_constraintTop_toBottomOf="@+id/cardCheckIn" />
+        </androidx.cardview.widget.CardView>
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+        <Button
+            android:id="@+id/btnCheckIn"
+            android:layout_width="0dp"
+            android:layout_height="60dp"
+            android:layout_marginTop="-20dp"
+            android:backgroundTint="#E43838"
+            android:elevation="80dp"
+            android:fontFamily="@font/sofia_pro_black_normal"
+            android:text="Check in"
+            app:cornerRadius="20dp"
+            app:layout_constraintEnd_toEndOf="@+id/cardCheckIn"
+            app:layout_constraintHorizontal_bias="0.496"
+            app:layout_constraintStart_toStartOf="@+id/cardCheckIn"
+            app:layout_constraintTop_toBottomOf="@+id/cardCheckIn" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.swiperefreshlayout.widget.SwipeRefreshLayout>

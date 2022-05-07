@@ -85,6 +85,7 @@ dependencies {
     implementation "androidx.recyclerview:recyclerview:$rootProject.recyclerVersion"
 
     implementation "androidx.constraintlayout:constraintlayout:$rootProject.constraintLayoutVersion"
+    implementation 'androidx.swiperefreshlayout:swiperefreshlayout:1.1.0'
 
     //Navigation
     implementation "androidx.navigation:navigation-fragment-ktx:$rootProject.navigationVersion"

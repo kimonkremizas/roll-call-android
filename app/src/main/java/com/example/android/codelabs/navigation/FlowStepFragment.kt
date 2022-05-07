@@ -75,9 +75,20 @@ class FlowStepFragment : Fragment() {
 
         FillLessonCard(AppState.CurrentLesson)
 
+        swipeRefresh?.setOnRefreshListener {
+
+        }
+
          /*view.findViewById<View>(R.id.next_button).setOnClickListener(
             Navigation.createNavigateOnClickListener(R.id.next_action)
         )*/
+    }
+
+    private fun RefreshLesson() {
+        lifecycleScope.launch(Dispatchers.IO) {
+            val lessonService: LessonService = LessonService()
+            lessonService.GetCurrentLesson(AppState.CurrentUser)
+        }
     }
 
     private fun FillLessonCard(lesson: Lesson)
@@ -104,6 +115,10 @@ class FlowStepFragment : Fragment() {
             if (lesson.Code == null) {
                 btnCheckIn?.isVisible = false
                 cardCheckIn?.isVisible = false
+            }
+
+            if(swipeRefresh?.isRefreshing == true) {
+                swipeRefresh?.setRefreshing(false)
             }
         }
     }
