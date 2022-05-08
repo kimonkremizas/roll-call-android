@@ -43,4 +43,9 @@ class LessonService {
         val result: Boolean = lessonController.CheckIfCheckedIn(user, lesson)
         return result;
     }
+
+    suspend fun GetLessonsByMonth(user: User, month: Int):List<Lesson> {
+        val lessons:List<Lesson> = lessonController.GetLessonsByMonth(user, month)
+        return lessons
+    }
 }

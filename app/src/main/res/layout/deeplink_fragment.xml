@@ -21,17 +21,17 @@
     tools:context="com.example.android.codelabs.navigation.DeepLinkFragment">
 
     <TextView
-        android:id="@+id/title"
+        android:id="@+id/twMonthName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="20dp"
+        android:layout_marginTop="5dp"
         android:fontFamily="@font/sofia_pro_medium"
         android:text="May 2022"
         android:textColor="@android:color/black"
-        android:textSize="40sp"
-        app:layout_constraintBottom_toTopOf="@id/tableCardView"
+        android:textSize="30sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <androidx.cardview.widget.CardView
         android:id="@+id/tableCardView"
@@ -65,7 +65,7 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:text="Monday"
+                    android:text="Mon"
                     android:textColor="@android:color/white" />
 
                 <TextView
@@ -73,7 +73,7 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:text="Tuesday"
+                    android:text="Tue"
                     android:textColor="@android:color/white" />
 
                 <TextView
@@ -81,7 +81,7 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:text="Wednesday"
+                    android:text="Wed"
                     android:textColor="@android:color/white" />
 
                 <TextView
@@ -89,7 +89,7 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:text="Thursday"
+                    android:text="Thu"
                     android:textColor="@android:color/white" />
 
                 <TextView
@@ -97,7 +97,7 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:text="Friday"
+                    android:text="Fri"
                     android:textColor="@android:color/white" />
             </TableRow>
 
@@ -108,34 +108,39 @@
                 android:showDividers="middle">
 
                 <TextView
+                    android:id="@+id/day1"
                     style="@style/TimeTableFont"
                     android:layout_width="0dp"
                     android:layout_height="70dp"
-                    android:text="DLS" />
+                    android:maxLines="5" />
 
                 <TextView
+                    android:id="@+id/day2"
                     style="@style/TimeTableFont"
                     android:layout_width="0dp"
                     android:layout_height="70dp"
-                    android:text="DLS" />
+                    android:maxLines="5" />
 
                 <TextView
+                    android:id="@+id/day3"
                     style="@style/TimeTableFont"
                     android:layout_width="0dp"
                     android:layout_height="70dp"
-                    android:text="DLS" />
+                    android:maxLines="5" />
 
                 <TextView
+                    android:id="@+id/day4"
                     style="@style/TimeTableFont"
                     android:layout_width="0dp"
                     android:layout_height="70dp"
-                    android:text="DLS" />
+                    android:maxLines="5" />
 
                 <TextView
+                    android:id="@+id/day5"
                     style="@style/TimeTableFont"
                     android:layout_width="0dp"
                     android:layout_height="70dp"
-                    android:text="DLS" />
+                    android:maxLines="5" />
 
             </TableRow>
 
@@ -144,34 +149,39 @@
                 android:showDividers="middle">
 
                 <TextView
+                    android:id="@+id/day6"
                     style="@style/TimeTableFont"
                     android:layout_width="0dp"
                     android:layout_height="70dp"
-                    android:text="DLS" />
+                    android:maxLines="5" />
 
                 <TextView
+                    android:id="@+id/day7"
                     style="@style/TimeTableFont"
                     android:layout_width="0dp"
                     android:layout_height="70dp"
-                    android:text="DLS" />
+                    android:maxLines="5" />
 
                 <TextView
+                    android:id="@+id/day8"
                     style="@style/TimeTableFont"
                     android:layout_width="0dp"
                     android:layout_height="70dp"
-                    android:text="DLS" />
+                    android:maxLines="5" />
 
                 <TextView
+                    android:id="@+id/day9"
                     style="@style/TimeTableFont"
                     android:layout_width="0dp"
                     android:layout_height="70dp"
-                    android:text="DLS" />
+                    android:maxLines="5" />
 
                 <TextView
+                    android:id="@+id/day10"
                     style="@style/TimeTableFont"
                     android:layout_width="0dp"
                     android:layout_height="70dp"
-                    android:text="DLS" />
+                    android:maxLines="5" />
 
             </TableRow>
 
@@ -180,34 +190,39 @@
                 android:showDividers="middle">
 
                 <TextView
+                    android:id="@+id/day11"
                     style="@style/TimeTableFont"
                     android:layout_width="0dp"
                     android:layout_height="70dp"
-                    android:text="DLS" />
+                    android:maxLines="5" />
 
                 <TextView
+                    android:id="@+id/day12"
                     style="@style/TimeTableFont"
                     android:layout_width="0dp"
                     android:layout_height="70dp"
-                    android:text="DLS" />
+                    android:maxLines="5" />
 
                 <TextView
+                    android:id="@+id/day13"
                     style="@style/TimeTableFont"
                     android:layout_width="0dp"
                     android:layout_height="70dp"
-                    android:text="DLS" />
+                    android:maxLines="5" />
 
                 <TextView
+                    android:id="@+id/day14"
                     style="@style/TimeTableFont"
                     android:layout_width="0dp"
                     android:layout_height="70dp"
-                    android:text="DLS" />
+                    android:maxLines="5" />
 
                 <TextView
+                    android:id="@+id/day15"
                     style="@style/TimeTableFont"
                     android:layout_width="0dp"
                     android:layout_height="70dp"
-                    android:text="DLS" />
+                    android:maxLines="5" />
 
             </TableRow>
 
@@ -216,34 +231,39 @@
                 android:showDividers="middle">
 
                 <TextView
+                    android:id="@+id/day16"
                     style="@style/TimeTableFont"
                     android:layout_width="0dp"
                     android:layout_height="70dp"
-                    android:text="DLS" />
+                    android:maxLines="5" />
 
                 <TextView
+                    android:id="@+id/day17"
                     style="@style/TimeTableFont"
                     android:layout_width="0dp"
                     android:layout_height="70dp"
-                    android:text="DLS" />
+                    android:maxLines="5" />
 
                 <TextView
+                    android:id="@+id/day18"
                     style="@style/TimeTableFont"
                     android:layout_width="0dp"
                     android:layout_height="70dp"
-                    android:text="DLS" />
+                    android:maxLines="5" />
 
                 <TextView
+                    android:id="@+id/day19"
                     style="@style/TimeTableFont"
                     android:layout_width="0dp"
                     android:layout_height="70dp"
-                    android:text="DLS" />
+                    android:maxLines="5" />
 
                 <TextView
+                    android:id="@+id/day20"
                     style="@style/TimeTableFont"
                     android:layout_width="0dp"
                     android:layout_height="70dp"
-                    android:text="DLS" />
+                    android:maxLines="5" />
 
             </TableRow>
 
@@ -252,40 +272,70 @@
                 android:showDividers="middle">
 
                 <TextView
+                    android:id="@+id/day21"
                     style="@style/TimeTableFont"
                     android:layout_width="0dp"
                     android:layout_height="70dp"
-                    android:text="DLS" />
+                    android:maxLines="5" />
 
                 <TextView
+                    android:id="@+id/day22"
                     style="@style/TimeTableFont"
                     android:layout_width="0dp"
                     android:layout_height="70dp"
-                    android:text="DLS" />
+                    android:maxLines="5" />
 
                 <TextView
+                    android:id="@+id/day23"
                     style="@style/TimeTableFont"
                     android:layout_width="0dp"
                     android:layout_height="70dp"
-                    android:text="DLS" />
+                    android:maxLines="5" />
 
                 <TextView
+                    android:id="@+id/day24"
                     style="@style/TimeTableFont"
                     android:layout_width="0dp"
                     android:layout_height="70dp"
-                    android:text="DLS" />
+                    android:maxLines="5" />
 
                 <TextView
+                    android:id="@+id/day25"
                     style="@style/TimeTableFont"
                     android:layout_width="0dp"
                     android:layout_height="70dp"
-                    android:text="DLS" />
+                    android:maxLines="5" />
 
             </TableRow>
 
         </TableLayout>
 
     </androidx.cardview.widget.CardView>
+
+    <ImageView
+        android:id="@+id/minusMonth"
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginEnd="5dp"
+        android:clickable="true"
+        android:contentDescription="@string/deep_link_instructions"
+        android:src="?attr/actionModeCloseDrawable"
+        app:layout_constraintEnd_toStartOf="@+id/twMonthName"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/plusMonth"
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        android:layout_marginStart="5dp"
+        android:layout_marginTop="5dp"
+        android:clickable="true"
+        android:contentDescription="@string/deep_link_instructions"
+        android:rotation="180"
+        android:src="?attr/actionModeCloseDrawable"
+        app:layout_constraintStart_toEndOf="@+id/twMonthName"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <!--    <TextView-->
     <!--        android:id="@+id/text"-->

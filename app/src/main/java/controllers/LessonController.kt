@@ -93,8 +93,32 @@ class LessonController {
         return false
     }
 
+    suspend fun GetLessonsByMonth(user: User, month: Int): List<Lesson> {
+        val request = Request.Builder().url("$lessonUrl/ByMonth/${month}")
+            .addHeader("Authorization", "Bearer ${user.Token}").build()
+
+        try {
+            client.newCall(request).execute().use { response ->
+                if (!response.isSuccessful) throw IOException("Unexpected code $response")
+                response.body()?.let {
+                    val lessonData:List<LessonData> = Json.decodeFromString(it.string())
+                    var lessons: MutableList<Lesson> = mutableListOf()
+                    for(l in lessonData) {
+                        lessons.add(Lesson(l.id, l.subjectName, l.startTime, l.code, l.codeTime, l.campusName, l.teacherName))
+                    }
+                    return lessons
+                }
+            }
+        }
+        catch (ex: IOException) {
+            return listOf(Lesson())
+        }
+
+        return listOf(Lesson())
+    }
+
     @Serializable
     data class LessonData(val id: Int, val subjectId: Int, val subjectName: String,
                           val startTime: LocalDateTime, val code: Int?, val codeTime: LocalDateTime?,
-                            val campusId: Int, val campusName: String, val teacherName: String)
+                            val campusId: Int, val campusName: String?, val teacherName: String?)
 }

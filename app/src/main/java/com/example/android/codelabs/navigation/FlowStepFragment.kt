@@ -120,10 +120,10 @@ class FlowStepFragment : Fragment() {
 
             val int: Int = 45
             val duration: Duration = int.toDuration(DurationUnit.MINUTES)
-            val instant1: Instant = lesson.StartTime.toInstant(TimeZone.UTC)
+            val instant1: Instant = lesson.StartTime.toInstant(TimeZone.currentSystemDefault())
             val instant2: Instant = Clock.System.now()
             val instant3: Instant = instant1.plus(duration)
-            val dateTime3: kotlinx.datetime.LocalDateTime = instant3.toLocalDateTime(TimeZone.UTC)
+            val dateTime3: kotlinx.datetime.LocalDateTime = instant3.toLocalDateTime(TimeZone.currentSystemDefault())
 
             if (instant1 < instant2) {
                 twLessonWhen?.text = "Your current lesson"
@@ -208,7 +208,7 @@ class FlowStepFragment : Fragment() {
             val int: Int = 10
             val duration: Duration = int.toDuration(DurationUnit.MINUTES)
             while (cardCheckIn?.isVisible == true) {
-                instant1 = AppState.CurrentLesson.CodeTime?.toInstant(TimeZone.UTC)!!
+                instant1 = AppState.CurrentLesson.CodeTime?.toInstant(TimeZone.currentSystemDefault())!!
                 instant2 = Clock.System.now()
                 difference = instant1.plus(duration) - instant2
                 if(difference.inWholeSeconds > 0){

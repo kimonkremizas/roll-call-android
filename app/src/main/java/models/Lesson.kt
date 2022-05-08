@@ -15,15 +15,19 @@ class Lesson {
     var TeacherName: String = ""
 
     constructor(id:Int, subjectName: String, startTime: LocalDateTime, code: Int?, codeTime: LocalDateTime?,
-        campusName: String, teacherName: String)
+        campusName: String?, teacherName: String?)
     {
         Id = id
         SubjectName = subjectName
         StartTime = startTime
         Code = code
         CodeTime = codeTime
-        CampusName = campusName
-        TeacherName = teacherName
+        if(campusName == null)
+            CampusName = ""
+        else CampusName = campusName
+        if(teacherName == null)
+            TeacherName = ""
+        else TeacherName = teacherName
     }
 
     constructor()
