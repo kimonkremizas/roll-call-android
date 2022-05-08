@@ -19,8 +19,8 @@
             android:title="@string/home" />
         <item
             android:id="@id/deeplink_dest"
-            android:icon="@drawable/ic_android"
-            android:title="@string/deeplink" />
+            android:icon="@drawable/timetable"
+            android:title="@string/timetable" />
     </group>
     <!-- TODO STEP 9.8 - Add a menu item for settings_fragment -->
     <item

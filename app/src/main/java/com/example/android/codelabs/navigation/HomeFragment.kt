@@ -18,8 +18,7 @@ package com.example.android.codelabs.navigation
 
 import android.os.Bundle
 import android.view.*
-import android.view.View.GONE
-import android.view.View.VISIBLE
+import android.view.View.*
 import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.lifecycleScope
@@ -93,7 +92,7 @@ class HomeFragment : Fragment() {
 
             lifecycleScope.launch(Dispatchers.Main) {
                 binding.progressBar.visibility =  VISIBLE
-                loginButton?.isVisible = false
+                loginButton?.visibility = INVISIBLE
                 hideKeyboard()
             }
             lifecycleScope.launch(Dispatchers.IO) {
@@ -114,7 +113,7 @@ class HomeFragment : Fragment() {
     private fun ShowWelcomeMessage(firstName:String)
     {
         lifecycleScope.launch(Dispatchers.Main) {
-            binding.progressBar.visibility =  GONE
+            binding.progressBar.visibility =  INVISIBLE
             loginButton?.isVisible = true
         }
 
@@ -146,7 +145,7 @@ class HomeFragment : Fragment() {
     private fun ShowLoginFailMessage(error:String)
     {
         lifecycleScope.launch(Dispatchers.Main) {
-            progressBar.visibility =  GONE
+            progressBar.visibility =  INVISIBLE
             loginButton?.isVisible = true
         }
         activity?.runOnUiThread {

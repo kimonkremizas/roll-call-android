@@ -18,6 +18,6 @@
         android:title="@string/home" />
     <item
         android:id="@id/deeplink_dest"
-        android:icon="@drawable/ic_android"
-        android:title="@string/deeplink" />
+        android:icon="@drawable/timetable"
+        android:title="@string/timetable" />
 </menu>

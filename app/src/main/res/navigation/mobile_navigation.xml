@@ -74,7 +74,7 @@
     <fragment
         android:id="@+id/deeplink_dest"
         android:name="com.example.android.codelabs.navigation.DeepLinkFragment"
-        android:label="@string/deeplink"
+        android:label="@string/timetable"
         tools:layout="@layout/deeplink_fragment">
 
         <argument
