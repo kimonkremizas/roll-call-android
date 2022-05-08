@@ -143,13 +143,13 @@ class FlowStepFragment : Fragment() {
                 btnCheckIn?.isVisible = false
                 cardCheckIn?.isVisible = false
                 twRollCallStatus?.text = "Roll call has not started yet."
-                twRollCallStatus.setTextColor(Color.parseColor("#2E2E2E"))
+                twRollCallStatus?.setTextColor(Color.parseColor("#2E2E2E"))
             } else {
                 btnCheckIn?.isVisible = true
                 cardCheckIn?.isVisible = true
                 CheckInCounter()
                 twRollCallStatus?.text = "Roll call has started."
-                twRollCallStatus.setTextColor(Color.parseColor("#E43838"))
+                twRollCallStatus?.setTextColor(Color.parseColor("#E43838"))
             }
 
             if(swipeRefresh?.isRefreshing == true) {
