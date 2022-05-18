@@ -1,10 +1,9 @@
-package appLogic
+package com.example.rollcall.appLogic
 
-import android.util.Log
-import models.Lesson
-import models.User
-import services.LessonService
-import services.LoginService
+import com.example.rollcall.models.Lesson
+import com.example.rollcall.models.User
+import com.example.rollcall.services.LessonService
+import com.example.rollcall.services.LoginService
 
 object AppState {
     enum class State {

@@ -1,9 +1,9 @@
-package services
+package com.example.rollcall.services
 
-import controllers.LessonController
-import models.Event
-import models.Lesson
-import models.User
+import com.example.rollcall.controllers.LessonController
+import com.example.rollcall.models.Event
+import com.example.rollcall.models.Lesson
+import com.example.rollcall.models.User
 
 class LessonService {
     companion object {

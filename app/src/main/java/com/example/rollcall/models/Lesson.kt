@@ -1,7 +1,5 @@
-package models
+package com.example.rollcall.models
 
-import kotlinx.datetime.Clock
-import kotlinx.datetime.Instant
 import kotlinx.datetime.LocalDateTime
 
 

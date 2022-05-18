@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.example.android.codelabs.navigation
+package com.example.rollcall.navigation
 
 import android.content.res.Resources
 import android.os.Bundle
@@ -22,21 +22,19 @@ import android.util.Log
 import android.view.Menu
 import android.view.MenuItem
 import android.view.View.*
-import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
-import androidx.drawerlayout.widget.DrawerLayout
 import androidx.lifecycle.lifecycleScope
 import androidx.navigation.NavController
 import androidx.navigation.findNavController
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.*
+import com.example.rollcall.R
 import com.google.android.material.bottomnavigation.BottomNavigationView
-import com.google.android.material.navigation.NavigationView
 import kotlinx.android.synthetic.main.navigation_activity.*
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
-import services.LoginService
+import com.example.rollcall.services.LoginService
 
 /**
  * A simple activity demonstrating use of a NavHostFragment with a navigation drawer.
