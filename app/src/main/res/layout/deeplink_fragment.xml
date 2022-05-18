@@ -20,7 +20,6 @@
     android:layout_height="match_parent"
     tools:context="com.example.android.codelabs.navigation.DeepLinkFragment">
 
-
     <TextView
         android:id="@+id/twMonthName"
         android:layout_width="wrap_content"
