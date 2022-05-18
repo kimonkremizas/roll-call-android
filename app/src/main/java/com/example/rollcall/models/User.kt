@@ -1,4 +1,4 @@
-package models
+package com.example.rollcall.models
 
 class User {
     var Id : Int = 0

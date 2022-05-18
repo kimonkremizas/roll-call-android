@@ -17,7 +17,7 @@
     app:startDestination="@+id/home_dest">
     <fragment
         android:id="@+id/home_dest"
-        android:name="com.example.android.codelabs.navigation.HomeFragment"
+        android:name="com.example.rollcall.navigation.HomeFragment"
         android:label="@string/home"
         tools:layout="@layout/home_fragment">
 
@@ -35,7 +35,7 @@
 
     <fragment
         android:id="@+id/flow_step_one_dest"
-        android:name="com.example.android.codelabs.navigation.FlowStepFragment"
+        android:name="com.example.rollcall.navigation.FlowStepFragment"
         tools:layout="@layout/flow_step_one_fragment">
         <argument
             android:name="flowStepNumber"
@@ -50,7 +50,7 @@
 
     <fragment
         android:id="@+id/flow_step_two_dest"
-        android:name="com.example.android.codelabs.navigation.FlowStepFragment"
+        android:name="com.example.rollcall.navigation.FlowStepFragment"
         tools:layout="@layout/flow_step_two_fragment">
 
         <argument
@@ -66,14 +66,14 @@
 
     <fragment
         android:id="@+id/settings_dest"
-        android:name="com.example.android.codelabs.navigation.SettingsFragment"
+        android:name="com.example.rollcall.navigation.SettingsFragment"
         android:label="@string/settings"
         tools:layout="@layout/settings_fragment" />
 
 
     <fragment
         android:id="@+id/deeplink_dest"
-        android:name="com.example.android.codelabs.navigation.DeepLinkFragment"
+        android:name="com.example.rollcall.navigation.DeepLinkFragment"
         android:label="@string/timetable"
         tools:layout="@layout/deeplink_fragment">
 

@@ -18,8 +18,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.example.android.codelabs.navigation.DeepLinkFragment">
-
+    tools:context="com.example.rollcall.navigation.DeepLinkFragment">
 
     <TextView
         android:id="@+id/twMonthName"

@@ -14,33 +14,26 @@
  * limitations under the License.
  */
 
-package com.example.android.codelabs.navigation
+package com.example.rollcall.navigation
 
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.lifecycleScope
-import androidx.lifecycle.withStarted
-import appLogic.AppState
-import com.example.android.codelabs.navigation.databinding.DeeplinkFragmentBinding
-import helpers.HelperFunctions
+import com.example.rollcall.appLogic.AppState
+import com.example.rollcall.databinding.DeeplinkFragmentBinding
+import com.example.rollcall.helpers.HelperFunctions
 import kotlinx.android.synthetic.main.deeplink_fragment.*
 import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 import kotlinx.datetime.*
 import kotlinx.datetime.TimeZone
-import models.Lesson
-import services.LessonService
+import com.example.rollcall.models.Lesson
+import com.example.rollcall.services.LessonService
 import java.time.YearMonth
-import java.util.*
-import kotlin.time.Duration
-import kotlin.time.DurationUnit
-import kotlin.time.toDuration
 
 /**
  * Fragment used to show how to deep link to a destination

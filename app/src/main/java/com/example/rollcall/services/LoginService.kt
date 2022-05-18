@@ -1,9 +1,8 @@
-package services
+package com.example.rollcall.services
 
-import android.util.Log
-import controllers.UserController
-import models.Event
-import models.User
+import com.example.rollcall.controllers.UserController
+import com.example.rollcall.models.Event
+import com.example.rollcall.models.User
 
 class LoginService {
     companion object {

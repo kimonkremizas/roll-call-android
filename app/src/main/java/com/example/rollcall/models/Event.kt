@@ -1,4 +1,4 @@
-package models
+package com.example.rollcall.models
 
 class Event<T> {
     private val handlers = arrayListOf<(Event<T>.(T) -> Unit)>()

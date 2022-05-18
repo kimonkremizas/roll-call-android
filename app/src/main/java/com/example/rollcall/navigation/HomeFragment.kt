@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.example.android.codelabs.navigation
+package com.example.rollcall.navigation
 
 import android.os.Bundle
 import android.view.*
@@ -24,16 +24,15 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.navOptions
-import appLogic.AppState
-import com.example.android.codelabs.navigation.databinding.HomeFragmentBinding
-import helpers.HelperFunctions
-import helpers.HelperFunctions.hideKeyboard
+import com.example.rollcall.R
+import com.example.rollcall.appLogic.AppState
+import com.example.rollcall.databinding.HomeFragmentBinding
+import com.example.rollcall.helpers.HelperFunctions.hideKeyboard
 import kotlinx.android.synthetic.main.home_fragment.*
-import kotlinx.android.synthetic.main.navigation_activity.*
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
-import services.LessonService
-import services.LoginService
+import com.example.rollcall.services.LessonService
+import com.example.rollcall.services.LoginService
 
 /**
  * Fragment used to show how to navigate to another destination

@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.example.android.codelabs.navigation
+package com.example.rollcall.navigation
 
 import android.graphics.Color
 import android.os.Bundle
@@ -22,27 +22,21 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
-import androidx.appcompat.widget.ThemedSpinnerAdapter
 import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.lifecycleScope
-import androidx.navigation.Navigation
 import androidx.navigation.fragment.navArgs
-import appLogic.AppState
-import helpers.HelperFunctions
+import com.example.rollcall.R
+import com.example.rollcall.appLogic.AppState
+import com.example.rollcall.helpers.HelperFunctions
 import kotlinx.android.synthetic.main.flow_step_one_fragment.*
-import kotlinx.android.synthetic.main.navigation_activity.*
-import kotlinx.android.synthetic.main.overview_fragment.*
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 import kotlinx.datetime.*
 import kotlinx.datetime.TimeZone
-import models.Lesson
-import services.LessonService
-import java.time.LocalDateTime
-import java.time.ZoneOffset
-import java.util.*
+import com.example.rollcall.models.Lesson
+import com.example.rollcall.services.LessonService
 import kotlin.time.Duration
 import kotlin.time.DurationUnit
 import kotlin.time.toDuration

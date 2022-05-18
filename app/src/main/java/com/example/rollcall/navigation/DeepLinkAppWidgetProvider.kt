@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.example.android.codelabs.navigation
+package com.example.rollcall.navigation
 
 import android.appwidget.AppWidgetManager
 import android.appwidget.AppWidgetProvider
@@ -22,6 +22,7 @@ import android.content.Context
 import android.os.Bundle
 import android.widget.RemoteViews
 import androidx.navigation.NavDeepLinkBuilder
+import com.example.rollcall.R
 
 /**
  * App Widget that deep links you to the [DeepLinkFragment].

@@ -1,12 +1,11 @@
-package controllers
+package com.example.rollcall.controllers
 
-import kotlinx.datetime.Instant
 import kotlinx.datetime.LocalDateTime
 import kotlinx.serialization.Serializable
 import kotlinx.serialization.decodeFromString
 import kotlinx.serialization.json.Json
-import models.Lesson
-import models.User
+import com.example.rollcall.models.Lesson
+import com.example.rollcall.models.User
 import okhttp3.MediaType
 import okhttp3.OkHttpClient
 import okhttp3.Request
