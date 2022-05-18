@@ -37,7 +37,6 @@ class DeepLinkAppWidgetProvider : AppWidgetProvider() {
             context.packageName,
             R.layout.deep_link_appwidget
         )
-
         val args = Bundle()
         args.putString("myarg", "From Widget")
         // TODO STEP 10 - construct and set a PendingIntent using DeepLinkBuilder
