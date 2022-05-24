@@ -11,7 +11,7 @@ class GetDayEndingTest {
     @Test
     @Throws(Exception::class)
     fun getDayEnding_valid_second() {
-        assertEquals("nd", GetDayEnding(2))
+        assertEquals("nt", GetDayEnding(2))
     }
     @Test
     @Throws(Exception::class)
